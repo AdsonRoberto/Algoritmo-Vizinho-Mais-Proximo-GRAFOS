@@ -16,10 +16,10 @@ public class VizinhoMaisProximo {
 		
 		fileLines = readFile(reader, fileLines);
 		
-		/*int n = getN(fileLines);
+		int n = getN(fileLines);
 		int type = getType(fileLines);
 		
-		System.out.println(n);
+		/*System.out.println(n);
 		System.out.println(type);
 		for(String line: fileLines){
 			System.out.println(line);
