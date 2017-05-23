@@ -5,6 +5,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class VizinhoMaisProximo {
 
 	public static void main(String[] args) throws IOException{
 		Scanner reader = new Scanner(System.in);
-		List<String> fileLines = null;
+		List<String> fileLines = new ArrayList<String>();
 		
 		fileLines = readFile(reader, fileLines);
 		
@@ -26,6 +27,45 @@ public class VizinhoMaisProximo {
 		}*/
 		
 		reader.close();
+		
+		if(type == 1)
+			type1(fileLines, n);
+		else if(type == 2)
+			type2(fileLines, n);
+		else if(type == 3)
+			type3(fileLines, n);
+	}
+
+	private static void type3(List<String> fileLines, int n) {
+		List<Double[]> custos = new ArrayList<Double[]>();
+		Double[] line = new Double[n];
+		
+		for(int i = 1, j = 0; i <= n; i++){
+			j = 0;
+			for(String value: fileLines.get(i).split(" ")){
+				line[j] = Double.parseDouble(value);
+				j++;
+			}
+			//----->AQUI<-----
+			custos.add(line);
+		}
+		//teste
+		for(Double[] linha: custos){
+			for(int j = 0; j<n;j++){
+				System.out.print(linha[j].toString() + " ");
+			}
+			System.out.println();
+		}
+		
+	}
+
+	private static void type2(List<String> fileLines, int n) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void type1(List<String> fileLines, int n) {
+		
 	}
 
 	private static int getType(List<String> fileLines) {
